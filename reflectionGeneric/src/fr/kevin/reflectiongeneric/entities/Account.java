@@ -2,15 +2,28 @@ package fr.kevin.reflectiongeneric.entities;
 
 import fr.kevin.reflectiongeneric.entities.base.BaseEntities;
 
-public class Account extends BaseEntities {
+public class Account implements BaseEntities {
+	
+	private int id = 0;
 	private double solde = 0;
-	private User user = new User();
+	private Users users = new Users();
 	
 	public Account() {}
 	
-	public Account(double solde, User user) {
+	public Account(double solde, int id, Users users) {
+		this.id = id;
 		this.solde = solde;
-		this.user = user;
+		this.users = users;
+	}
+	
+	@Override
+	public int getId() {
+		return this.id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public double getSolde() {
@@ -21,12 +34,11 @@ public class Account extends BaseEntities {
 		this.solde = solde;
 	}
 
-	public User getUser() {
-		return user;
+	public Users getUsers() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(Users users) {
+		this.users = users;
 	}
-
 }
